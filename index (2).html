@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Systems Lab — The tech studio for impact funders</title>
+<meta name="description" content="AI strategy, tech systems and team training to help funders and impact organisations do more good.">
+<link rel="canonical" href="https://goodsystemslab.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Good Systems — The tech studio for impact funders">
+<meta property="og:description" content="AI strategy, tech systems and team training to help funders and impact organisations do more good.">
+<meta property="og:url" content="https://goodsystemslab.com/">
+<meta property="og:site_name" content="Good Systems">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Good Systems — The tech studio for impact funders">
+<meta name="twitter:description" content="AI strategy, tech systems and team training to help funders and impact organisations do more good.">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Good Systems Lab",
+  "url": "https://goodsystemslab.com/",
+  "description": "AI strategy, tech systems and team training for funders and impact organisations.",
+  "founder": {
+    "@type": "Person",
+    "name": "Siddharth Chatterjee",
+    "alumniOf": ["Yale-NUS College", "Yale University"],
+    "jobTitle": "Founder, Good Systems Lab"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": ["AI & Tech Strategy", "Outcome Sprints", "AI Training"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F3EC;
+  --cream-deep:#EFE9DD;
+  --ink:#1A1612;
+  --ink-soft:#5A544A;
+  --sage:#5F7161;
+  --sage-wash:rgba(95,113,97,0.10);
+  --forest:#3E5243;
+  --bright:#4E8A5C;
+  --hairline:rgba(26,22,18,0.16);
+  --hairline-soft:rgba(26,22,18,0.09);
+  --max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(26,22,18,0.035) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+::selection{background:var(--sage);color:var(--cream);}
+
+/* ---------- Nav ---------- */
+nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0;}
+.brand{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.08em;color:var(--ink);text-decoration:none;text-transform:uppercase;}
+.brand span{color:var(--bright);}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--ink-soft);text-decoration:none;position:relative;}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;height:1px;width:0;background:var(--sage);transition:width .35s cubic-bezier(.22,.61,.36,1);}
+.nav-links a:hover::after{width:100%;}
+.nav-links a:focus-visible{outline:2px solid var(--sage);outline-offset:4px;}
+.nav-cta{border:1px solid var(--ink);padding:8px 18px;border-radius:2px;color:var(--ink) !important;transition:background .25s,color .25s;}
+.nav-cta:hover{background:var(--ink);color:var(--cream) !important;}
+.nav-cta::after{display:none;}
+
+/* ---------- Hero ---------- */
+header.hero{padding:110px 0 130px;}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:500;
+  font-size:clamp(48px,7.5vw,92px);
+  line-height:1.1;
+  max-width:17ch;
+  letter-spacing:-0.01em;
+}
+.hero h1 .accent{
+  font-style:italic;font-weight:600;color:var(--forest);
+}
+.hero .word{display:inline-block;opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.22,.61,.36,1) forwards;}
+@keyframes rise{to{opacity:1;transform:translateY(0);}}
+.gap-mark{position:relative;display:inline-block;font-style:italic;font-weight:600;color:var(--bright);}
+.gap-mark::after{
+  content:'';position:absolute;left:0;bottom:6px;height:3px;width:0;
+  background:var(--bright);
+  animation:draw 1s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay:1.5s;
+}
+@keyframes draw{to{width:100%;}}
+.hero-sub{
+  margin-top:36px;font-size:17.5px;color:var(--ink-soft);max-width:52ch;
+  opacity:0;animation:rise .7s .9s cubic-bezier(.22,.61,.36,1) forwards;transform:translateY(14px);
+  border-left:2px solid var(--sage);padding-left:18px;
+}
+.hero-sub strong{color:var(--forest);font-weight:600;}
+.hero-cta-row{
+  margin-top:44px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+  opacity:0;animation:rise .7s 1.15s cubic-bezier(.22,.61,.36,1) forwards;transform:translateY(14px);
+}
+.btn{
+  display:inline-block;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;
+  background:var(--forest);color:var(--cream);text-decoration:none;
+  padding:16px 32px;border-radius:2px;border:1px solid var(--forest);
+  transition:background .25s,transform .25s,box-shadow .25s;
+}
+.btn:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,22,18,0.22);}
+.btn:focus-visible{outline:2px solid var(--sage);outline-offset:3px;}
+.hero-note{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--ink-soft);letter-spacing:0.04em;}
+.proof-block{
+  margin-top:64px;opacity:0;animation:rise .7s 1.4s cubic-bezier(.22,.61,.36,1) forwards;transform:translateY(14px);
+}
+.proof-label{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;
+  color:var(--sage);text-transform:uppercase;margin-bottom:18px;
+}
+.marquee{
+  overflow:hidden;position:relative;max-width:720px;
+  -webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
+  mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
+}
+.marquee-track{
+  display:flex;gap:60px;width:max-content;align-items:center;
+  animation:scroll 30s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+.marquee-track span{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;letter-spacing:0.02em;
+  color:var(--ink);opacity:0.82;white-space:nowrap;
+  position:relative;transition:opacity .25s,color .25s;
+}
+.marquee-track span:hover{opacity:1;color:var(--forest);}
+.marquee-track span::after{
+  content:'◆';position:absolute;right:-34px;top:50%;transform:translateY(-50%);
+  font-size:7px;color:var(--sage);opacity:0.85;
+}
+@keyframes scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(calc(-50% - 30px));}
+}
+
+/* ---------- Section scaffolding ---------- */
+section{padding:96px 0;}
+.eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:44px;}
+.eyebrow .rule{width:48px;height:2px;background:var(--sage);}
+.eyebrow p{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--forest);}
+.section-title{
+  font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3.6vw,40px);
+  line-height:1.2;margin-bottom:56px;max-width:30ch;
+}
+.section-title em{font-style:italic;color:var(--forest);font-weight:600;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- What I Do ---------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.card{
+  position:relative;
+  border:1px solid var(--hairline);border-radius:4px;
+  background:#FBF8F2;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .35s;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;height:3px;width:100%;
+  background:linear-gradient(90deg,var(--sage),var(--forest));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.card:hover::before,.card.in::before{transform:scaleX(1);}
+.card.in:nth-child(1)::before{transition-delay:.25s;}
+.card.in:nth-child(2)::before{transition-delay:.45s;}
+.card.in:nth-child(3)::before{transition-delay:.65s;}
+.card:hover{border-color:var(--sage);transform:translateY(-5px);box-shadow:0 20px 48px rgba(26,22,18,0.10);}
+.card-head{
+  padding:30px 30px 6px;
+}
+.card .num{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1;
+  color:var(--sage);opacity:0.35;margin-bottom:14px;
+  transition:opacity .35s,color .35s;
+}
+.card:hover .num{opacity:0.85;color:var(--forest);}
+.card h3{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:29px;line-height:1.15;color:var(--ink);
+  display:inline-block;position:relative;
+}
+.card h3::after{
+  content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--sage);
+  transition:width .4s cubic-bezier(.22,.61,.36,1);
+}
+.card:hover h3::after{width:100%;}
+.card:hover h3{color:var(--forest);}
+.card-body{padding:14px 30px 36px;display:flex;flex-direction:column;gap:14px;}
+.card p.body{font-size:15.5px;color:var(--ink-soft);line-height:1.75;}
+
+/* Ladder */
+.ladder{margin-top:64px;text-align:center;}
+.ladder-line{position:relative;height:44px;max-width:560px;margin:0 auto;}
+.ladder-track{position:absolute;top:50%;left:0;height:1px;width:100%;background:var(--hairline);}
+.ladder-progress{position:absolute;top:50%;left:0;height:1px;width:0;background:var(--sage);transition:width 1.4s cubic-bezier(.22,.61,.36,1);}
+.ladder-line.in .ladder-progress{width:100%;}
+.node{position:absolute;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--cream);border:1.5px solid var(--sage);}
+.node-label{position:absolute;top:calc(50% + 14px);transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest);white-space:nowrap;}
+.values-line{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--ink);max-width:48ch;margin:52px auto 0;line-height:1.4;}
+.values-line em{font-style:italic;color:var(--bright);}
+
+/* ---------- Case Studies ---------- */
+.case{
+  display:grid;grid-template-columns:170px 1fr auto;gap:32px;align-items:center;
+  padding:38px 0;border-top:1px solid var(--hairline-soft);
+  text-decoration:none;color:inherit;transition:background .25s;
+}
+.case:last-of-type{border-bottom:1px solid var(--hairline-soft);}
+.case:hover{background:rgba(95,113,97,0.05);}
+.case .big-stat{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,4vw,46px);
+  color:var(--forest);line-height:1;font-variant-numeric:tabular-nums;
+}
+.case:nth-of-type(2) .big-stat{color:#7A5E8C;}
+.case:nth-of-type(3) .big-stat{color:#A9814D;}
+
+.case .big-stat small{
+  display:block;font-family:'DM Mono',monospace;font-size:11px;font-weight:400;color:var(--sage);
+  letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;
+}
+.case h3{font-family:'Inter',sans-serif;font-weight:400;font-size:16.5px;line-height:1.55;color:var(--ink-soft);max-width:52ch;}
+.case h3 strong{font-weight:600;color:var(--ink);}
+.case .view{font-family:'DM Mono',monospace;font-size:13px;color:var(--sage);white-space:nowrap;transition:color .25s,transform .25s;}
+.case:hover .view{color:var(--forest);transform:translateX(4px);}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;}
+.about-name{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:1.2;}
+.about-role{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--sage);letter-spacing:0.1em;text-transform:uppercase;margin-top:12px;}
+.about-copy p{font-size:16px;color:var(--ink-soft);margin-bottom:20px;max-width:62ch;}
+.about-copy p strong{color:var(--forest);font-weight:600;}
+
+/* ---------- Footer CTA ---------- */
+.final{text-align:center;padding:120px 0 100px;border-top:1px solid var(--hairline-soft);}
+.final h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.4vw,48px);line-height:1.2;max-width:24ch;margin:0 auto 36px;}
+.final h2 em{font-style:italic;color:var(--forest);font-weight:600;}
+footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:28px 0 40px;border-top:1px solid var(--hairline-soft);
+  font-family:'DM Mono',monospace;font-size:12.5px;color:var(--ink-soft);letter-spacing:0.04em;
+}
+footer a{color:var(--ink-soft);text-decoration:none;position:relative;}
+footer a::after{content:'';position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--sage);transition:width .35s;}
+footer a:hover::after{width:100%;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .services{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .case{grid-template-columns:1fr;gap:14px;padding:30px 0;}
+  header.hero{padding:70px 0 90px;}
+  section{padding:72px 0;}
+  .node-label{font-size:10px;}
+  .nav-links{gap:20px;}
+}
+@media (max-width:560px){
+  .nav-links a:not(.nav-cta){display:none;}
+  .wrap{padding:0 22px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero .word,.hero-sub,.hero-cta-row,.proof-block{animation:none;opacity:1;transform:none;}
+  .marquee-track{animation:none;flex-wrap:wrap;}
+  .marquee{mask-image:none;-webkit-mask-image:none;}
+  .marquee-track span[aria-hidden="true"]{display:none;}
+  .gap-mark::after{animation:none;width:100%;}
+  .reveal{opacity:1;transform:none;transition:none;}
+  .ladder-line.in .ladder-progress{transition:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<nav>
+  <a class="brand" href="#">Good <span>Systems</span></a>
+  <div class="nav-links">
+    <a href="#work">What I Do</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#about">About</a>
+    <a class="nav-cta" href="https://cal.com/good-systems/30-min-intro-call">Book a call</a>
+  </div>
+</nav>
+</div>
+
+<header class="hero">
+<div class="wrap">
+  <h1 id="heroLine">The tech studio for <span class="gap-mark">impact funders</span></h1>
+  <p class="hero-sub"><strong>AI strategy, tech systems and team training</strong> to help funders and impact organisations do more good.</p>
+  <div class="hero-cta-row">
+    <a class="btn" href="https://cal.com/good-systems/30-min-intro-call">Book a Free Strategy Call →</a>
+  </div>
+  <div class="proof-block">
+    <p class="proof-label">I've previously worked with leaders from</p>
+    <div class="marquee" aria-label="AVPN, Gates Foundation, MacArthur Foundation, Dalberg, Visa">
+      <div class="marquee-track">
+        <span>AVPN</span><span>Gates Foundation</span><span>MacArthur Foundation</span><span>Dalberg</span><span>Visa</span>
+        <span aria-hidden="true">AVPN</span><span aria-hidden="true">Gates Foundation</span><span aria-hidden="true">MacArthur Foundation</span><span aria-hidden="true">Dalberg</span><span aria-hidden="true">Visa</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<section id="work">
+<div class="wrap">
+  <div class="eyebrow reveal"><span class="rule"></span><p>§ 01 — What I Do</p></div>
+  <div class="services">
+    <div class="card reveal">
+      <div class="card-head">
+        <p class="num">01</p>
+        <h3>AI &amp; Tech Strategy</h3>
+      </div>
+      <div class="card-body">
+        <p class="body">As the tools become more potent, knowing what to do with them becomes critical. In <em>Strategy</em>, we surface your goals, resources and values to determine the outcomes worth building for. Then we map your actual operations and workflows, and design an AI &amp; tech roadmap to get you there.</p>
+      </div>
+    </div>
+    <div class="card reveal" style="transition-delay:.12s">
+      <div class="card-head">
+        <p class="num">02</p>
+        <h3>Outcomes Sprint</h3>
+      </div>
+      <div class="card-body">
+        <p class="body">A fixed-scope build toward a defined outcome: automate impact capture to save hours in reporting, design a learning delivery system that reaches beneficiaries via WhatsApp, or connect the databases and tools your team already uses. Clearly scoped, priced upfront, delivered in weeks.</p>
+      </div>
+    </div>
+    <div class="card reveal" style="transition-delay:.24s">
+      <div class="card-head">
+        <p class="num">03</p>
+        <h3>AI Training</h3>
+      </div>
+      <div class="card-body">
+        <p class="body">Masterclasses and hands-on capability building from someone who ships AI systems for a living. Bespoke sessions range from practical workflows and tools for impact funders to fundamentals such as responsible AI use and the role of technology in the impact sector.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ladder reveal">
+    <div class="ladder-line" id="ladderLine">
+      <div class="ladder-track"></div>
+      <div class="ladder-progress"></div>
+      <span class="node" style="left:8%"></span><span class="node-label" style="left:8%">Strategy</span>
+      <span class="node" style="left:50%"></span><span class="node-label" style="left:50%">Outcome Sprint</span>
+      <span class="node" style="left:92%"></span><span class="node-label" style="left:92%">Training</span>
+    </div>
+    <p class="values-line"><em>Good systems, not more systems.</em> Projects are designed for sustainability, with deep intention in whether and how we use AI.</p>
+  </div>
+</div>
+</section>
+
+<section id="cases">
+<div class="wrap">
+  <div class="eyebrow reveal"><span class="rule"></span><p>§ 02 — Case Studies</p></div>
+
+  <a class="case reveal" href="/case-studies/philanthropy-workshops-avpn.html">
+    <span class="big-stat"><span class="stat" data-count="2.4" data-prefix="$" data-suffix="M">$2.4M</span><small>Grant outcome</small></span>
+    <h3>How <strong>strategy workshops for philanthropy leaders</strong> at Temasek, MacArthur and Bill &amp; Melinda Gates Foundation led to a <strong>$2.4M grant</strong></h3>
+    <span class="view">View →</span>
+  </a>
+
+  <a class="case reveal" href="/case-studies/real-estate-quote-automation.html">
+    <span class="big-stat"><span class="stat" data-count="57200" data-prefix="£" data-suffix="">£57,200</span><small>Capacity / year</small></span>
+    <h3>Helping a London property firm <strong>recover £57,200/yr in capacity</strong> by automating their client enquiry and quoting process</h3>
+    <span class="view">View →</span>
+  </a>
+
+  <a class="case reveal" href="/case-studies/founder-ai-coaching.html">
+    <span class="big-stat"><span class="zero-one">0 → 1</span><small>AI capability</small></span>
+    <h3>Helping a 7-figure marketing founder go from <strong>AI-overwhelmed</strong> to <strong>independently building and selling AI solutions</strong></h3>
+    <span class="view">View →</span>
+  </a>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+  <div class="eyebrow reveal"><span class="rule"></span><p>§ 03 — About</p></div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-name">Siddharth Chatterjee</p>
+      <p class="about-role">Founder, Good Systems Lab</p>
+    </div>
+    <div class="about-copy reveal" style="transition-delay:.12s">
+      <p>Our most important problems require our best ideas and tools. I started Good Systems to solve human problems through technology and nudge us towards a future where technology is built for the planet.</p>
+      <p>Before this, I was at <strong>AVPN, Asia's largest network of social impact funders</strong>, where I led masterclasses for senior leaders at Visa, MacArthur, and the Gates Foundation. The flagship learning event I helped create led to a <strong>$2.4M grant</strong> to establish the Commission on Asian Philanthropy.</p>
+      <p>I studied Philosophy, Politics and Economics at <strong>Yale-NUS College and Yale University</strong> with a focus on the Philosophy of Mind and Philosophy of Technology. I use that strategic lens to connect technology to human outcomes today.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="final">
+<div class="wrap reveal">
+  <a class="btn" href="https://cal.com/good-systems/30-min-intro-call">Book a Free Strategy Call →</a>
+</div>
+</section>
+
+<div class="wrap">
+<footer>
+  <span>Siddharth Chatterjee</span>
+  <a href="https://goodsystemslab.com">goodsystemslab.com</a>
+</footer>
+</div>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const ladder = document.getElementById('ladderLine');
+if(ladder){
+  const lio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ladder.classList.add('in');lio.unobserve(ladder);}
+    });
+  },{threshold:0.6});
+  lio.observe(ladder);
+}
+
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const h = document.getElementById('heroLine');
+  const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while(walker.nextNode()) textNodes.push(walker.currentNode);
+  let i = 0;
+  textNodes.forEach(node=>{
+    const frag = document.createDocumentFragment();
+    node.textContent.split(/(\s+)/).forEach(part=>{
+      if(part.trim()===''){frag.appendChild(document.createTextNode(part));return;}
+      const s = document.createElement('span');
+      s.className = 'word';
+      s.style.animationDelay = (0.08 * i++) + 's';
+      s.textContent = part;
+      frag.appendChild(s);
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+})();
+
+function animateCount(el){
+  const target = parseFloat(el.dataset.count);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = String(el.dataset.count).includes('.');
+  const dur = 1100;
+  const start = performance.now();
+  function frame(now){
+    const t = Math.min((now - start)/dur, 1);
+    const eased = 1 - Math.pow(1-t, 3);
+    const val = target * eased;
+    el.textContent = prefix + (isDecimal ? val.toFixed(1) : Math.round(val).toLocaleString('en-GB')) + suffix;
+    if(t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const sio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){animateCount(e.target);sio.unobserve(e.target);}
+    });
+  },{threshold:0.6});
+  document.querySelectorAll('.stat').forEach(el=>sio.observe(el));
+}
+</script>
+</body>
+</html>
