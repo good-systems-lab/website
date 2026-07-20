@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- EDIT PAGE TITLE HERE -->
+  <title>Case Study — Marketing Founder · Good Systems Lab</title>
+
+  <!-- Fonts: Cormorant Garamond (headline — graceful italic) + Lora (body) + DM Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --cream:            #F7F3EC;
+      --cream-dark:       #EFE9DA;
+      --ink:              #1A1612;
+      --ink-mid:          #3A3028;
+      --ink-light:        #7A6F65;
+
+      /* General accent — Muted Purple */
+      --accent:           #7B5EA7;
+      --accent-lt:        #B39DCC;
+      --accent-dk:        #5A3F85;
+
+      /* Headline accent — deeper purple */
+      --accent-headline:  #5A3F85;
+
+      --taupe:            #9E8E7E;
+      --rule:             #D8CFBF;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Lora', Georgia, serif;
+      --font-mono:    'DM Mono', 'Courier New', monospace;
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── BASE ──────────────────────────────────────────────────────── */
+    html {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 32px;
+      background: var(--cream);
+    }
+
+    /* ─── PRINT STYLES ──────────────────────────────────────────────── */
+    @media print {
+      html, body { background: #fff; }
+      body { max-width: 100%; padding: 0 20mm; }
+      .no-print { display: none; }
+      @page { margin: 15mm 0; size: A4; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SECTION 1 · HEADER / LABEL BAR
+    ───────────────────────────────────────────────────────────────── */
+    .label-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* EDIT LABEL BAR TEXT HERE */
+    .label-bar__type {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-dk);
+    }
+
+    .label-bar__meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SECTION 2 · HEADLINE
+    ───────────────────────────────────────────────────────────────── */
+    .headline-block {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* EDIT HEADLINE HERE */
+    .headline-block__title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5.2vw, 50px);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--ink);
+      max-width: 660px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Cormorant Garamond italic is elegant — use it proudly */
+    .headline-block__title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* EDIT SERVICE TAGS HERE — dot-separated list of service types */
+    .headline-block__tags {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .headline-block__tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-dk);
+      background: transparent;
+      border: 1px solid var(--accent-lt);
+      border-radius: 2px;
+      padding: 4px 10px;
+      margin-right: 10px;
+      margin-bottom: 4px;
+      white-space: nowrap;
+    }
+
+    .headline-block__tag-sep {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--rule);
+      margin-right: 10px;
+      margin-bottom: 4px;
+      user-select: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SECTION 3 · OUTCOMES (dominant third — centred indent)
+    ───────────────────────────────────────────────────────────────── */
+    .outcomes-block {
+      padding: 52px 40px 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--rule);
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .outcome-item {
+      padding: 0 32px 0 0;
+      border-right: 1px solid var(--rule);
+      margin-right: 32px;
+    }
+
+    .outcome-item:last-child {
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    /* EDIT OUTCOME NUMBERS HERE */
+    .outcome-item__number {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .outcome-item__number sup {
+      font-size: 0.45em;
+      vertical-align: super;
+      font-weight: 700;
+    }
+
+    .outcome-item__label {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-style: normal;
+    }
+
+    .outcome-item__sublabel {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-top: 8px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SECTION 4 · CHALLENGE + SOLUTION (deeper indent — "beneath the fold")
+    ───────────────────────────────────────────────────────────────── */
+    .narrative-block {
+      /* Bleed background full width, escaping body padding */
+      margin-left:  -32px;
+      margin-right: -32px;
+      padding: 48px 112px 52px; /* 80px indent + 32px to compensate the negative margin */
+      background: #EDE6D6;
+      border-top:    1px solid #CCBFA8;
+      border-bottom: 1px solid #CCBFA8;
+      --rule: #C8BAA4;
+    }
+
+    .narrative-col {
+      padding: 0 0 40px;
+    }
+
+    .narrative-col + .narrative-col {
+      padding-top: 40px;
+      padding-bottom: 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .narrative-col__label {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      text-align: center;
+    }
+
+    /* Rules on both sides of challenge/solution labels */
+    .narrative-col__label::before,
+    .narrative-col__label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--rule);
+      width: 40px;
+      flex-shrink: 0;
+    }
+
+    /* EDIT CHALLENGE LABEL COLOUR HERE */
+    .narrative-col--challenge .narrative-col__label { color: var(--ink); }
+
+    /* EDIT SOLUTION LABEL COLOUR HERE */
+    .narrative-col--solution .narrative-col__label { color: var(--ink); }
+
+    /* EDIT CHALLENGE TEXT HERE */
+    /* EDIT SOLUTION TEXT HERE */
+    .narrative-col__body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--ink-mid);
+    }
+
+    .narrative-col--solution .narrative-col__body {
+      color: var(--ink);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SECTION 5 · FOOTER
+    ───────────────────────────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left:  -32px;
+      margin-right: -32px;
+      padding: 24px 32px 32px;
+      background: #EDE6D6;
+    }
+
+    /* EDIT FOOTER NAME / WEBSITE HERE */
+    .footer__name {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    .footer__site {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      text-decoration: none;
+    }
+
+    .footer__site:hover {
+      color: var(--accent-dk);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       DECORATIVE TEXTURE OVERLAY
+    ───────────────────────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      z-index: 9999;
+    }
+
+    /* Responsive */
+    @media (max-width: 560px) {
+      .outcomes-grid { grid-template-columns: 1fr; gap: 32px; }
+      .outcome-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 0 0 24px; margin: 0; }
+      .outcome-item:last-child { border-bottom: none; padding-bottom: 0; }
+      .outcomes-block { padding-left: 16px; padding-right: 16px; }
+      .narrative-block { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       LABEL BAR — edit type tag and industry/date here
+  ════════════════════════════════════════════════════════════════ -->
+  <header class="label-bar">
+    <!-- EDIT DOCUMENT TYPE HERE -->
+    <span class="label-bar__type">Case Study</span>
+
+    <!-- EDIT INDUSTRY + YEAR HERE -->
+    <span class="label-bar__meta">Marketing SaaS Founder · London</span>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HEADLINE — the entire win in one line
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="headline-block">
+
+    <!-- EDIT HEADLINE HERE -->
+    <h1 class="headline-block__title">
+      Helping a 7-figure marketing founder go from <em>AI-overwhelmed</em> to <em>independently building and selling AI solutions.</em>
+    </h1>
+
+    <!-- EDIT SERVICE TAGS HERE — add/remove tags as needed for each case study -->
+    <div class="headline-block__tags">
+      <span class="headline-block__tag">AI Coaching & Implementation</span>
+      <span class="headline-block__tag-sep">·</span>
+      <span class="headline-block__tag">Sales System Consulting</span>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       OUTCOMES — visually dominant, large numbers
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="outcomes-block">
+
+    <!-- EDIT OUTCOMES LABEL HERE -->
+    <p class="section-label">The Result</p>
+
+    <div class="outcomes-grid">
+
+      <!-- EDIT OUTCOME 1 HERE -->
+      <div class="outcome-item">
+        <div class="outcome-item__number">$1,500+ AI Tool<br>Built in 2 Sessions</div>
+        <p class="outcome-item__label">He built and integrated a production-ready AI marketing insights generator into his agency in just two coaching sessions.</p>
+      </div>
+
+      <!-- EDIT OUTCOME 2 HERE -->
+      <div class="outcome-item">
+        <div class="outcome-item__number">Daily LinkedIn Content Agent</div>
+        <p class="outcome-item__label">He built an AI content agent that emails fresh content ideas to him every working day, helping him grow his LinkedIn channel and inbound acquisition.</p>
+      </div>
+
+      <!-- EDIT OUTCOME 3 HERE -->
+      <div class="outcome-item">
+        <div class="outcome-item__number">AI Business Transformation</div>
+        <p class="outcome-item__label">The founder went from no AI capability to selling AI services as part of his own 7-figure marketing agency.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CHALLENGE + SOLUTION — narrative columns
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="narrative-block">
+
+    <!-- EDIT CHALLENGE HERE -->
+    <div class="narrative-col narrative-col--challenge">
+      <p class="narrative-col__label">The Challenge</p>
+      <p class="narrative-col__body">
+        A 7-figure marketing founder wanted to integrate AI into his business but lacked the time and in-house expertise to do it himself. Overwhelmed by the complexity of AI tools, he needed both guidance and accountability to actually build.
+      </p>
+    </div>
+
+    <!-- EDIT SOLUTION HERE -->
+    <div class="narrative-col narrative-col--solution">
+      <p class="narrative-col__label">The Solution</p>
+      <ul class="narrative-col__body" style="padding-left: 1.2em; list-style: disc;">
+        <li style="margin-bottom: 10px;">Weekly 1:1 coaching guiding the founder to build AI automations himself</li>
+        <li style="margin-bottom: 10px;">Taught AI context engineering, workflow design, and API integration through hands-on building</li>
+        <li style="margin-bottom: 10px;">Built a custom AI marketing insights generator integrated directly into his agency</li>
+        <li>Implemented a LinkedIn research agent delivering daily content ideas to his email</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER — name and website
+  ════════════════════════════════════════════════════════════════ -->
+  <!-- EDIT FOOTER NAME AND WEBSITE HERE -->
+  <footer class="footer">
+    <span class="footer__name">Siddharth Chatterjee</span>
+    <a class="footer__site" href="https://goodsystemslab.com" target="_blank">goodsystemslab.com</a>
+  </footer>
+
+
+</body>
+</html>
