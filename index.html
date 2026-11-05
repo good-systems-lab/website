@@ -91,7 +91,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0
 .nav-cta::after{display:none;}
 
 /* ---------- Hero ---------- */
-header.hero{padding:110px 0 130px;}
+header.hero{padding:110px 0 64px;}
 .hero h1{
   font-family:'Cormorant Garamond',serif;
   font-weight:500;
@@ -177,58 +177,54 @@ section{padding:96px 0;}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1);}
 .reveal.in{opacity:1;transform:none;}
 
-/* ---------- What I Do ---------- */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.card{
-  position:relative;
-  border:1px solid var(--hairline);border-radius:4px;
-  background:#FBF8F2;
-  transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .35s;
-  display:flex;flex-direction:column;overflow:hidden;
+/* ---------- Approach ---------- */
+#approach{padding-top:48px;}
+.approach-title{
+  font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.6vw,68px);
+  line-height:1.1;letter-spacing:-0.01em;margin-bottom:40px;
 }
-.card::before{
+.approach-title span{color:var(--forest);font-weight:600;}
+.approach-intro .lead{
+  font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.6vw,30px);
+  line-height:1.35;color:var(--ink);margin-bottom:18px;
+}
+.approach-intro p{font-size:17px;color:var(--ink-soft);margin-bottom:12px;}
+.approach-intro p:last-child{margin-bottom:0;}
+.approach-intro strong{color:var(--forest);font-weight:600;}
+.approach-method{margin-top:104px;}
+
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.step{
+  position:relative;overflow:hidden;
+  background:#FBF8F2;border:1px solid var(--hairline);border-radius:4px;
+  padding:36px 36px 40px;
+  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;
+  transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .35s;
+}
+.step::before{
   content:'';position:absolute;top:0;left:0;height:3px;width:100%;
   background:linear-gradient(90deg,var(--sage),var(--forest));
   transform:scaleX(0);transform-origin:left;
-  transition:transform .5s cubic-bezier(.22,.61,.36,1);
+  transition:transform .6s .25s cubic-bezier(.22,.61,.36,1);
 }
-.card:hover::before,.card.in::before{transform:scaleX(1);}
-.card.in:nth-child(1)::before{transition-delay:.25s;}
-.card.in:nth-child(2)::before{transition-delay:.45s;}
-.card.in:nth-child(3)::before{transition-delay:.65s;}
-.card:hover{border-color:var(--sage);transform:translateY(-5px);box-shadow:0 20px 48px rgba(26,22,18,0.10);}
-.card-head{
-  padding:30px 30px 6px;
+.step.in::before{transform:scaleX(1);}
+.step:hover{border-color:var(--sage);transform:translateY(-4px);box-shadow:0 20px 48px rgba(26,22,18,0.10);}
+.step .num{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:64px;line-height:.9;
+  color:var(--sage);min-width:1.4em;transition:color .35s;
 }
-.card .num{
-  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1;
-  color:var(--sage);opacity:0.35;margin-bottom:14px;
-  transition:opacity .35s,color .35s;
+.step:hover .num{color:var(--forest);}
+.step h3{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:29px;line-height:1.15;
+  color:var(--ink);margin-bottom:12px;transition:color .35s;
 }
-.card:hover .num{opacity:0.85;color:var(--forest);}
-.card h3{
-  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:29px;line-height:1.15;color:var(--ink);
-  display:inline-block;position:relative;
-}
-.card h3::after{
-  content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--sage);
-  transition:width .4s cubic-bezier(.22,.61,.36,1);
-}
-.card:hover h3::after{width:100%;}
-.card:hover h3{color:var(--forest);}
-.card-body{padding:14px 30px 36px;display:flex;flex-direction:column;gap:14px;}
-.card p.body{font-size:15.5px;color:var(--ink-soft);line-height:1.75;}
+.step:hover h3{color:var(--forest);}
+.step p.body{font-size:16px;color:var(--ink-soft);line-height:1.7;}
 
-/* Ladder */
-.ladder{margin-top:64px;text-align:center;}
-.ladder-line{position:relative;height:44px;max-width:560px;margin:0 auto;}
-.ladder-track{position:absolute;top:50%;left:0;height:1px;width:100%;background:var(--hairline);}
-.ladder-progress{position:absolute;top:50%;left:0;height:1px;width:0;background:var(--sage);transition:width 1.4s cubic-bezier(.22,.61,.36,1);}
-.ladder-line.in .ladder-progress{width:100%;}
-.node{position:absolute;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:var(--cream);border:1.5px solid var(--sage);}
-.node-label{position:absolute;top:calc(50% + 14px);transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest);white-space:nowrap;}
-.values-line{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--ink);max-width:48ch;margin:52px auto 0;line-height:1.4;}
-.values-line em{font-style:italic;color:var(--bright);}
+.approach-close{margin-top:104px;}
+.approach-close h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.6vw,56px);line-height:1.15;letter-spacing:-0.01em;margin-bottom:24px;}
+.approach-close h3 em{font-style:italic;font-weight:600;color:var(--bright);}
+.approach-close p{font-size:17px;color:var(--ink-soft);margin-bottom:32px;}
 
 /* ---------- Case Studies ---------- */
 .case{
@@ -276,17 +272,24 @@ footer a:hover::after{width:100%;}
 
 /* ---------- Responsive ---------- */
 @media (max-width:900px){
-  .services{grid-template-columns:1fr;}
+  .approach-close{margin-top:80px;}
+  .approach-method{margin-top:80px;}
+  .method{grid-template-columns:1fr;gap:18px;}
+  .step{padding:28px 26px 32px;gap:20px;}
+  .step .num{font-size:52px;}
+  .step h3{font-size:26px;}
   .about-grid{grid-template-columns:1fr;gap:32px;}
   .case{grid-template-columns:1fr;gap:14px;padding:30px 0;}
-  header.hero{padding:70px 0 90px;}
+  header.hero{padding:70px 0 45px;}
+  #approach{padding-top:36px;}
   section{padding:72px 0;}
-  .node-label{font-size:10px;}
   .nav-links{gap:20px;}
 }
 @media (max-width:560px){
   .nav-links a:not(.nav-cta){display:none;}
   .wrap{padding:0 22px;}
+  .step{grid-template-columns:1fr;gap:12px;}
+  .step .num{font-size:46px;}
 }
 @media (prefers-reduced-motion:reduce){
   .hero .word,.hero-sub,.hero-cta-row,.proof-block{animation:none;opacity:1;transform:none;}
@@ -295,7 +298,7 @@ footer a:hover::after{width:100%;}
   .marquee-track span[aria-hidden="true"]{display:none;}
   .gap-mark::after{animation:none;width:100%;}
   .reveal{opacity:1;transform:none;transition:none;}
-  .ladder-line.in .ladder-progress{transition:none;}
+  .step,.step::before{transition:none !important;}
   html{scroll-behavior:auto;}
 }
 </style>
@@ -304,9 +307,9 @@ footer a:hover::after{width:100%;}
 
 <div class="wrap">
 <nav>
-  <a class="brand" href="#">Good <span>Systems</span></a>
+  <a class="brand" href="#">Good <span>Systems Lab</span></a>
   <div class="nav-links">
-    <a href="#work">What I Do</a>
+    <a href="#approach">Approach</a>
     <a href="#cases">Case Studies</a>
     <a href="#about">About</a>
     <a class="nav-cta" href="https://cal.com/good-systems/30-min-intro-call">Book a call</a>
@@ -322,7 +325,7 @@ footer a:hover::after{width:100%;}
     <a class="btn" href="https://cal.com/good-systems/30-min-intro-call">Book a Free Strategy Call →</a>
   </div>
   <div class="proof-block">
-    <p class="proof-label">I've previously worked with leaders from</p>
+    <p class="proof-label">We've previously worked with leaders from</p>
     <div class="marquee" aria-label="AVPN, Gates Foundation, MacArthur Foundation, Dalberg, Visa">
       <div class="marquee-track">
         <span>AVPN</span><span>Gates Foundation</span><span>MacArthur Foundation</span><span>Dalberg</span><span>Visa</span>
@@ -333,48 +336,54 @@ footer a:hover::after{width:100%;}
 </div>
 </header>
 
-<section id="work">
+<section id="approach">
 <div class="wrap">
-  <div class="eyebrow reveal"><span class="rule"></span><p>§ 01 — What I Do</p></div>
-  <div class="services">
-    <div class="card reveal">
-      <div class="card-head">
+  <h2 class="approach-title reveal">Outcomes first. <span>Technology second.</span></h2>
+
+  <div class="approach-intro reveal" style="transition-delay:.12s">
+    <p class="lead">Technology is an accelerant. It will take us further in whichever direction we point it.</p>
+    <p>Choosing where to apply technology is therefore one of the most important decisions an organisation can make.</p>
+    <p>That's why our approach starts <strong>before AI</strong>, by identifying where innovation could create the greatest value for your organisation.</p>
+  </div>
+
+  <div class="approach-method">
+    <div class="eyebrow reveal"><span class="rule"></span><p>§ 01 — Our Approach</p></div>
+    <div class="method">
+      <div class="step reveal">
         <p class="num">01</p>
-        <h3>AI &amp; Tech Strategy</h3>
+        <div>
+          <h3>Find Your Innovation Focus</h3>
+          <p class="body">Identify the few outcomes that are critical to your organisation's success.</p>
+        </div>
       </div>
-      <div class="card-body">
-        <p class="body">As the tools become more potent, knowing what to do with them becomes critical. In <em>Strategy</em>, we surface your goals, resources and values to determine the outcomes worth building for. Then we map your actual operations and workflows, and design an AI &amp; tech roadmap to get you there.</p>
-      </div>
-    </div>
-    <div class="card reveal" style="transition-delay:.12s">
-      <div class="card-head">
+      <div class="step reveal" style="transition-delay:.12s">
         <p class="num">02</p>
-        <h3>Outcomes Sprint</h3>
+        <div>
+          <h3>Prioritise Opportunities</h3>
+          <p class="body">Understand the processes that lead to critical outcomes and identify where innovation might make the greatest difference.</p>
+        </div>
       </div>
-      <div class="card-body">
-        <p class="body">A fixed-scope build toward a defined outcome: automate impact capture to save hours in reporting, design a learning delivery system that reaches beneficiaries via WhatsApp, or connect the databases and tools your team already uses. Clearly scoped, priced upfront, delivered in weeks.</p>
-      </div>
-    </div>
-    <div class="card reveal" style="transition-delay:.24s">
-      <div class="card-head">
+      <div class="step reveal">
         <p class="num">03</p>
-        <h3>AI Training</h3>
+        <div>
+          <h3>Design &amp; Implement a Pilot</h3>
+          <p class="body">Move from idea to action quickly with a well-designed pilot.</p>
+        </div>
       </div>
-      <div class="card-body">
-        <p class="body">Masterclasses and hands-on capability building from someone who ships AI systems for a living. Bespoke sessions range from practical workflows and tools for impact funders to fundamentals such as responsible AI use and the role of technology in the impact sector.</p>
+      <div class="step reveal" style="transition-delay:.12s">
+        <p class="num">04</p>
+        <div>
+          <h3>Adopt, Learn &amp; Scale</h3>
+          <p class="body">Make adoption easy, learn what works, and build on winning ideas.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="ladder reveal">
-    <div class="ladder-line" id="ladderLine">
-      <div class="ladder-track"></div>
-      <div class="ladder-progress"></div>
-      <span class="node" style="left:8%"></span><span class="node-label" style="left:8%">Strategy</span>
-      <span class="node" style="left:50%"></span><span class="node-label" style="left:50%">Outcome Sprint</span>
-      <span class="node" style="left:92%"></span><span class="node-label" style="left:92%">Training</span>
-    </div>
-    <p class="values-line"><em>Good systems, not more systems.</em> Projects are designed for sustainability, with deep intention in whether and how we use AI.</p>
+  <div class="approach-close reveal">
+    <h3>Start <em>wherever you are.</em></h3>
+    <p>We offer focused engagements at every stage, from choosing your focus and mapping opportunities to implementing solutions and helping teams adopt them.</p>
+    <a class="btn" href="https://cal.com/good-systems/30-min-intro-call">Let's discuss your challenge →</a>
   </div>
 </div>
 </section>
@@ -440,16 +449,6 @@ const io = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-const ladder = document.getElementById('ladderLine');
-if(ladder){
-  const lio = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ladder.classList.add('in');lio.unobserve(ladder);}
-    });
-  },{threshold:0.6});
-  lio.observe(ladder);
-}
 
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
